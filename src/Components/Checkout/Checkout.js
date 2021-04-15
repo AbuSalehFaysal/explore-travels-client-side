@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 
 
+
 const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     
@@ -18,7 +19,7 @@ const Checkout = () => {
     // console.log(id);
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://secure-hollows-18485.herokuapp.com/products/${id}`)
+        fetch(`http://localhost:5000/products/${id}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     }, [])
@@ -37,7 +38,7 @@ const Checkout = () => {
 
     const handleOrder = () => {
         const newOrder = {...loggedInUser, ...product, ...selectedDate}
-        fetch("https://secure-hollows-18485.herokuapp.com/addOrder", {
+        fetch("http://localhost:5000/addOrder", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newOrder)
@@ -50,7 +51,7 @@ const Checkout = () => {
     return (
         <div className="container text-center">
             <h1>This is Checkout Route</h1>
-            <h1>{name} -- {price} BDT -- {quantity} (Quantity / Weight)</h1>
+            <h1>{name} -- {price} BDT -- {quantity}</h1>
             
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <Grid container justify="space-around">
@@ -68,7 +69,7 @@ const Checkout = () => {
                         }}
                     />
                 </Grid>
-                <Button onClick={handleOrder} variant="contained" color="primary">Place Order</Button>
+                <Button onClick={handleOrder} variant="contained" color="primary">Confirm Booking</Button>
             </MuiPickersUtilsProvider>
             
         </div>

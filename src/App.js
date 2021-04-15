@@ -15,6 +15,7 @@ import { createContext, useState } from 'react';
 import Checkout from './Components/Checkout/Checkout';
 import Admin from './Components/Admin/Admin';
 import Home from './Components/Home/Home';
+import Review from './Components/Review/Review';
 
 export const UserContext = createContext();
 
@@ -34,7 +35,7 @@ function App() {
               <Link  style={{margin: '15px'}} to="/orders">Bookings</Link>
             </Nav>
             <Nav>
-              <Link  style={{margin: '15px'}} to="/deals">Offers</Link>
+              <Link  style={{margin: '15px'}} to="/review">Review</Link>
             </Nav>
             <Nav>
               <Link style={{margin: '15px'}}  to="/login">Login</Link>
@@ -57,9 +58,9 @@ function App() {
           <PrivateRoute path="/orders">
             <Orders />
           </PrivateRoute>
-          <Route path="/deals">
-            <Deals />
-          </Route>
+          <PrivateRoute path="/review">
+            <Review />
+          </PrivateRoute>
           <Route path="/Login">
             <Login />
           </Route>

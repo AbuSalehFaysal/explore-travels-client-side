@@ -46,8 +46,8 @@ const Login = () => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 var token = credential.accessToken;
                 // The signed-in user info.
-                const { displayName, email } = result.user;
-                const signedInUser = { name: displayName, email };
+                const { displayName, email, photoURL } = result.user;
+                const signedInUser = { name: displayName, email, photoURL: photoURL };
                 setLoggedInUser(signedInUser);
                 history.replace(from);
                 // ...

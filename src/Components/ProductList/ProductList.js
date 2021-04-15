@@ -20,7 +20,7 @@ const ProductList = (props) => {
                         <p class="card-text">{quantity}</p>
                     </div>
                     
-                        <button className="btn btn-primary btn-block">BOOK NOW!</button>
+                        <button onClick={() => handleCheckout(_id)} className="btn btn-primary btn-block">BOOK NOW!</button>
                     
                 </div>
             </div>
