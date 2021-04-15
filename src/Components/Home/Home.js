@@ -1,5 +1,6 @@
 import React from 'react';
 import Products from '../Products/Products';
+import Trips from '../Trips/Trips';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
                 </div>
             </div>
             <Products></Products>
+            <Trips></Trips>
         </div>
     );
 };
